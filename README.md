@@ -2,6 +2,8 @@
 
 A HOC that overrides the React setState API to use Redux for storing component state.
 
+> **NOTE:** This project is in early development and does not fully emulate the React state API. See [Issues](https://github.com/mmiller42/react-redux-setstate/issues).
+
 This library allows you to use React's familiar `this.state` and `this.setState` API for controlling state on a component, while leveraging Redux's global store for managing application state.
 
 One of Redux's key features is that state is *not* localized, meaning that it encourages reuse of application-wide state over redundancy of data. However, there are certainly times when your state is truly local to a component: for example, when a confirmation modal is open, or an expandable menu is toggled. In these instances, using Redux to manage state means a lot of headache in wiring components up to the store and setting up single-use action creators and reducers, as well as ensuring that collisions in the store namespace are avoided.
@@ -87,14 +89,3 @@ Here are some known limitations when using this library instead of React's built
 * Directly setting a value to `this.state` can only be done once, and only within the constructor. Subsequent calls to the setter will be silently ignored.
 * Internally, this library uses react-redux's `connect` decorator to pass Redux state into the component via props. Therefore, your component will be passed in additional props, called `__reactReduxSetState_componentKey__` and `__reactReduxSetState_state__`. You should be aware of this if you are iterating over all props (such as with the spread operator).
 * The HOC will set instance members on your component named `__reactReduxSetState_ready__` and `__reactReduxSetState_tempState__`.
-
-## To-Dos
-
-This project is in early development. The following tasks are still needed to fully emulate React's state API:
-
-* [ ] Make component state available in lifecycle methods.
-* [ ] Have `setState` also accept a function to manage multiple updates atomically.
-* [ ] Have `setState` accept a callback to evaluate when the state has been updated and reflected.
-* [ ] Improve documentation.
-* [ ] Write tests.
-
