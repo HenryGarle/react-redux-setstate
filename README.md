@@ -44,7 +44,7 @@ class MyComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      count: 0
+      count: 0,
     }
   }
 
@@ -81,8 +81,18 @@ Remember, this identifier must be globally unique across the app, for any and al
 
 ## Limitations
 
-This project is in early development. Here are some known limitations:
+Here are some known limitations when using this library instead of React's built-in state API:
 
-* The React `setState` method also accepts a function to update the state, which is guaranteed to be applied with the latest state, which helps with managing concurrency. This is not implemented yet in this project.
-* The React `setState` method accepts a callback as the second argument, which is called when the state is actually updated and reflected in the `state` object. This is not implemented yet in this project.
 * Remember, Redux's state must be made up of plain, serializable data, whereas React state is in-memory and can include instances of other objects, like DOM elements or Dates. When using this library, make sure your component state is only primitive values, plain objects, and arrays.
+* Directly setting a value to `this.state` can only be done once, and only within the constructor. Subsequent calls to the setter will be silently ignored.
+
+## To-Dos
+
+This project is in early development. The following tasks are still needed to fully emulate React's state API:
+
+* [ ] Make component state available in lifecycle methods.
+* [ ] Have `setState` also accept a function to manage multiple updates atomically.
+* [ ] Have `setState` accept a callback to evaluate when the state has been updated and reflected.
+* [ ] Improve documentation.
+* [ ] Write tests.
+
