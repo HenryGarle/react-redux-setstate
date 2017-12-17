@@ -85,6 +85,8 @@ Here are some known limitations when using this library instead of React's built
 
 * Remember, Redux's state must be made up of plain, serializable data, whereas React state is in-memory and can include instances of other objects, like DOM elements or Dates. When using this library, make sure your component state is only primitive values, plain objects, and arrays.
 * Directly setting a value to `this.state` can only be done once, and only within the constructor. Subsequent calls to the setter will be silently ignored.
+* Internally, this library uses react-redux's `connect` decorator to pass Redux state into the component via props. Therefore, your component will be passed in additional props, called `__reactReduxSetState_componentKey__` and `__reactReduxSetState_state__`. You should be aware of this if you are iterating over all props (such as with the spread operator).
+* The HOC will set instance members on your component named `__reactReduxSetState_ready__` and `__reactReduxSetState_tempState__`.
 
 ## To-Dos
 
