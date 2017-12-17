@@ -1,6 +1,6 @@
 {
   "name": "react-redux-setstate",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A HOC that overrides the React setState API to use Redux for storing component state.",
   "main": "lib",
   "scripts": {
