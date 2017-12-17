@@ -1,0 +1,52 @@
+{
+  "name": "react-redux-setstate",
+  "version": "0.0.0",
+  "description": "A HOC that overrides the React setState API to use Redux for storing component state.",
+  "main": "lib",
+  "scripts": {
+    "build": "rm -rf lib && babel src --out-dir lib --source-maps --copy-files",
+    "precommit": "lint-staged",
+    "prettier": "prettier --write 'src/**/*.js'",
+    "test": "exit 0",
+    "watch": "npm run build -- --watch"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmiller42/react-redux-setstate.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "setstate",
+    "hoc"
+  ],
+  "author": "Matt Miller <me@mmiller.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmiller42/react-redux-setstate/issues"
+  },
+  "homepage": "https://github.com/mmiller42/react-redux-setstate#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2",
+    "react-redux": "^5.0.6"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0"
+  },
+  "peerDependencies": {
+    "react-redux": "^5.0.0"
+  }
+}
