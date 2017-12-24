@@ -81,6 +81,8 @@ export default connectComponentState(getComponentKey)(MyComponent)
 
 Remember, this identifier must be globally unique across the app, for any and all instances of components that use react-redux-setstate. This may require passing additional props down to the component to guarantee its uniqueness. Of course, if your component is a singleton, you can just have this function return a constant string.
 
+Also note that you can intentionally give two instances of a component the same key, if you want them to share the same state, in which state changes in one instance is synchronized in the other as well.
+
 ## Limitations
 
 Here are some known limitations when using this library instead of React's built-in state API:
